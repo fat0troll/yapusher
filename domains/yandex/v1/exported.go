@@ -12,6 +12,7 @@ import (
 const YANDEX_APPID = "7d8a0561fdc44c05bb6695b464403f9c"
 const YANDEX_APPPW = "56e12e4ed0d64738bf441a47f68c7146"
 const DEVICE_NAME = "yapusher-cli"
+const MAX_FILE_SIZE = 10 * 1024 * 1024 * 1024 // 10 gigabytes
 
 var (
 	c    *context.Context
@@ -34,14 +35,21 @@ func New(cc *context.Context) {
 		Name:         "uploadPath",
 		Description:  "Path to upload your file on Yandex.Disk. Must exist before uploading.",
 		Type:         "string",
-		DefaultValue: "/",
+		DefaultValue: "",
 	})
 
 	_ = c.Flagger.AddFlag(&flagger.Flag{
 		Name:         "file",
-		Description:  "Path to file that will be uploaded. Max upload size - 50 GB",
+		Description:  "Path to file that will be uploaded. Max upload size - 10 GB",
 		Type:         "string",
 		DefaultValue: "",
+	})
+
+	_ = c.Flagger.AddFlag(&flagger.Flag{
+		Name:         "force",
+		Description:  "Force file to be uploaded even if destination file on Yandex.Disk already exists.",
+		Type:         "bool",
+		DefaultValue: false,
 	})
 
 	dlog.Info().Msg("Domain initialized")
@@ -56,7 +64,9 @@ func Process() {
 
 	filePath, _ := c.Flagger.GetStringValue("file")
 	if filePath != "" {
-		uploadFile()
+		uploadPath, _ := c.Flagger.GetStringValue("uploadPath")
+		forceUpload, _ := c.Flagger.GetBoolValue("force")
+		uploadFile(uploadPath, filePath, forceUpload)
 	}
 
 	if !checkAuth() {

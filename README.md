@@ -2,7 +2,7 @@
 
 ## English
 
-This app is useful when you want to upload single file to Yandex.Disk but don't want to fiddle with sync official client or WebDAV. It is especially useful for automating backups (e. g. in conjuction with Proxmox's ``vzdump``.)
+This app is useful when you want to upload single file to Yandex.Disk but don't want to fiddle with sync official client or WebDAV. It is especially useful for automating backups (e. g. in conjuction with Proxmox's ``vzdump``).
 
 ## Russian
 
