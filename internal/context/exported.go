@@ -9,9 +9,6 @@ import (
 	"gitlab.com/pztrn/flagger"
 )
 
-// VERSION is the current app version
-const VERSION = "0.0.1"
-
 var (
 	dlog zerolog.Logger
 )

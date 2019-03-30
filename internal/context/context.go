@@ -61,8 +61,6 @@ func (c *Context) Init() {
 	c.Logger = zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
 	c.Logger = c.Logger.Hook(zerolog.HookFunc(c.getMemoryUsage))
 
-	c.Logger.Info().Str("version", VERSION).Msg("yapusher is starting")
-
 	dlog = c.Logger.With().Str("domain", "context").Logger()
 }
 

@@ -62,15 +62,15 @@ func Process() {
 		sendCode(authCode)
 	}
 
-	filePath, _ := c.Flagger.GetStringValue("file")
-	if filePath != "" {
-		uploadPath, _ := c.Flagger.GetStringValue("uploadPath")
-		forceUpload, _ := c.Flagger.GetBoolValue("force")
-		uploadFile(uploadPath, filePath, forceUpload)
-	}
-
 	if !checkAuth() {
 		authorize()
+	} else {
+		filePath, _ := c.Flagger.GetStringValue("file")
+		if filePath != "" {
+			uploadPath, _ := c.Flagger.GetStringValue("uploadPath")
+			forceUpload, _ := c.Flagger.GetBoolValue("force")
+			uploadFile(uploadPath, filePath, forceUpload)
+		}
 	}
 
 	showHelp()
