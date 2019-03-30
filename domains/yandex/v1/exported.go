@@ -10,6 +10,8 @@ import (
 )
 
 const YANDEX_APPID = "7d8a0561fdc44c05bb6695b464403f9c"
+const YANDEX_APPPW = "56e12e4ed0d64738bf441a47f68c7146"
+const DEVICE_NAME = "yapusher-cli"
 
 var (
 	c    *context.Context
@@ -33,6 +35,11 @@ func New(cc *context.Context) {
 
 // Process handles authorization and files
 func Process() {
+	authCode, _ := c.Flagger.GetIntValue("authCode")
+	if authCode != 0 {
+		sendCode(authCode)
+	}
+
 	if !checkAuth() {
 		authorize()
 	}

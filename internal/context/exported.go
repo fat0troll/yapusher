@@ -18,6 +18,8 @@ var (
 
 // Context is the main application context.
 type Context struct {
+	configFilePath string
+
 	Config  config.Config
 	Flagger *flagger.Flagger
 	Logger  zerolog.Logger

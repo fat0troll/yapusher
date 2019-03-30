@@ -14,10 +14,11 @@ import (
 func authorize() {
 	if !checkAuth() {
 		baseURL := "https://oauth.yandex.ru/authorize?response_type=code&client_id={{ client_id }}"
-		baseURL += "&device_id={{ device_id }}&device_name=yapusher-cli&force_confirm=yes"
+		baseURL += "&device_id={{ device_id }}&device_name={{ device_name }}&force_confirm=yes"
 
 		baseURL = strings.Replace(baseURL, "{{ client_id }}", YANDEX_APPID, 1)
 		baseURL = strings.Replace(baseURL, "{{ device_id }}", c.Config.DeviceID, 1)
+		baseURL = strings.Replace(baseURL, "{{ device_name }}", DEVICE_NAME, 1)
 
 		dlog.Info().Msg("Please open in your browser this URL and authorize the app. After getting the code restart the app with -authCode param (see -h for details).")
 		dlog.Info().Msgf("Auth URL: %s", baseURL)

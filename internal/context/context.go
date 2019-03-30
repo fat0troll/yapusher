@@ -38,6 +38,21 @@ func (c *Context) initFlagger() {
 	c.Flagger.Initialize()
 }
 
+func (c *Context) readConfig() {
+	fh, err := os.Open(c.configFilePath)
+	if err != nil {
+		dlog.Fatal().Err(err).Msg("Failed to read config file")
+	}
+
+	defer fh.Close()
+
+	decoder := json.NewDecoder(fh)
+	err = decoder.Decode(&c.Config)
+	if err != nil {
+		dlog.Fatal().Err(err).Msg("Failed to decode config")
+	}
+}
+
 // Init is an initialization function for core context
 // Without these parts of the application we can't start at all
 func (c *Context) Init() {
@@ -61,36 +76,31 @@ func (c *Context) InitConfig() {
 	dlog.Debug().Str("config directory", configPath).Msg("Got config directory")
 
 	configFile := filepath.Join(configPath, "settings.json")
+	c.configFilePath = configFile
+
 	if _, err = os.Stat(configFile); os.IsNotExist(err) {
 		// Generating new config on first run
 		dlog.Debug().Msg("Generating new config")
 
 		c.generateDefaultConfig()
-		fh, err := os.Create(configFile)
-		if err != nil {
-			dlog.Fatal().Err(err).Msg("Failed to create config file")
-		}
-		defer fh.Close()
-
-		encoder := json.NewEncoder(fh)
-		err = encoder.Encode(c.Config)
-		if err != nil {
-			dlog.Fatal().Err(err).Msg("Failed to encode config")
-		}
+		c.SaveConfig()
 	} else {
 		dlog.Debug().Msg("Using existing config")
 
-		fh, err := os.Open(configFile)
-		if err != nil {
-			dlog.Fatal().Err(err).Msg("Failed to read config file")
-		}
+		c.readConfig()
+	}
+}
 
-		defer fh.Close()
+func (c *Context) SaveConfig() {
+	fh, err := os.Create(c.configFilePath)
+	if err != nil {
+		dlog.Fatal().Err(err).Msg("Failed to create config file")
+	}
+	defer fh.Close()
 
-		decoder := json.NewDecoder(fh)
-		decoder.Decode(c.Config)
-		if err != nil {
-			dlog.Fatal().Err(err).Msg("Failed to decode config")
-		}
+	encoder := json.NewEncoder(fh)
+	err = encoder.Encode(&c.Config)
+	if err != nil {
+		dlog.Fatal().Err(err).Msg("Failed to encode config")
 	}
 }
