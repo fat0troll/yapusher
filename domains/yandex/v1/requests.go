@@ -57,3 +57,5 @@ func sendCode(code int) {
 
 	os.Exit(0)
 }
+
+func uploadFile() {}

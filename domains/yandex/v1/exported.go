@@ -30,6 +30,20 @@ func New(cc *context.Context) {
 		DefaultValue: 0000000,
 	})
 
+	_ = c.Flagger.AddFlag(&flagger.Flag{
+		Name:         "uploadPath",
+		Description:  "Path to upload your file on Yandex.Disk. Must exist before uploading.",
+		Type:         "string",
+		DefaultValue: "/",
+	})
+
+	_ = c.Flagger.AddFlag(&flagger.Flag{
+		Name:         "file",
+		Description:  "Path to file that will be uploaded. Max upload size - 50 GB",
+		Type:         "string",
+		DefaultValue: "",
+	})
+
 	dlog.Info().Msg("Domain initialized")
 }
 
@@ -40,7 +54,14 @@ func Process() {
 		sendCode(authCode)
 	}
 
+	filePath, _ := c.Flagger.GetStringValue("file")
+	if filePath != "" {
+		uploadFile()
+	}
+
 	if !checkAuth() {
 		authorize()
 	}
+
+	showHelp()
 }
