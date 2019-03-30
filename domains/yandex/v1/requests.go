@@ -14,9 +14,6 @@ import (
 	"strings"
 )
 
-func reportFileProgress(r int64) {
-}
-
 func sendCode(code int) {
 	baseURL := "https://oauth.yandex.ru/token"
 
@@ -25,9 +22,9 @@ func sendCode(code int) {
 	form.Set("grant_type", "authorization_code")
 	form.Set("code", strconv.Itoa(code))
 	form.Set("device_id", c.Config.DeviceID)
-	form.Set("device_name", DEVICE_NAME)
-	form.Set("client_id", YANDEX_APPID)
-	form.Set("client_secret", YANDEX_APPPW)
+	form.Set("device_name", DefaultDeviceName)
+	form.Set("client_id", YandexAppID)
+	form.Set("client_secret", YandexAppPw)
 
 	req, _ := http.NewRequest("POST", baseURL, strings.NewReader(form.Encode()))
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
@@ -78,7 +75,7 @@ func uploadFile(uploadPath string, filePath string, overwriteFile bool) {
 		}
 	}
 
-	if fileInfo.Size() > (MAX_FILE_SIZE - 1) {
+	if fileInfo.Size() > (MaxUploadSize - 1) {
 		dlog.Fatal().Msg("Requested file is too big")
 	}
 

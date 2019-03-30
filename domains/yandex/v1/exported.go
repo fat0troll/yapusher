@@ -9,10 +9,10 @@ import (
 	"gitlab.com/pztrn/flagger"
 )
 
-const YANDEX_APPID = "7d8a0561fdc44c05bb6695b464403f9c"
-const YANDEX_APPPW = "56e12e4ed0d64738bf441a47f68c7146"
-const DEVICE_NAME = "yapusher-cli"
-const MAX_FILE_SIZE = 10 * 1024 * 1024 * 1024 // 10 gigabytes
+const YandexAppID = "7d8a0561fdc44c05bb6695b464403f9c"
+const YandexAppPw = "56e12e4ed0d64738bf441a47f68c7146"
+const DefaultDeviceName = "yapusher-cli"
+const MaxUploadSize = 10 * 1024 * 1024 * 1024 // 10 gigabytes
 
 var (
 	c    *context.Context
