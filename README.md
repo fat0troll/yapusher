@@ -6,7 +6,20 @@ This small CLI utility is useful when you want to upload single file to Yandex.D
 
 ### Installation
 
-Download pre-built binary from [releases](https://github.com/fat0troll/yapusher/releases) page. If you're brave enough, or have Go installed, you can invoke
+The recommended install way is via Releases by invoking single command
+
+```sh
+# binary will be $(go env GOPATH)/bin/golangci-lint
+curl -sfL https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s -- -b $(go env GOPATH)/bin vX.Y.Z
+
+# or install it into ./bin/
+curl -sfL https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s vX.Y.Z
+
+# In alpine linux (as it does not come with curl by default)
+wget -O - -q https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s vX.Y.Z
+```
+
+If you're brave enough, or have Go installed, you can invoke
 
 ```sh
 go get -u github.com/fat0troll/yapusher
@@ -64,7 +77,20 @@ See [LICENSE](https://github.com/fat0troll/yapusher/blob/master/LICENSE).
 
 ### Установка
 
-На странице [релизов](https://github.com/fat0troll/yapusher/releases) доступны собранные версии утилиты для Win/Linux/Mac, которые можно скачать и расположить где угодно у себя в системе. Если вы хотите собрать утилиту из исходников (и имеете установленный Go в системе), вы можете установить ``yapusher`` так:
+Рекомендуемый способ установки — с использованием релизов. Установить необходимый релиз можно следующей командой:
+
+```sh
+# исполняемый файл программы будет доступен в пути $(go env GOPATH)/bin/golangci-lint
+curl -sfL https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s -- -b $(go env GOPATH)/bin vX.Y.Z
+
+# исполняемый файл программы будет доступен ./bin/
+curl -sfL https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s vX.Y.Z
+
+# версия для wget (потому что Alpine Linux не имеет в поставке по умолчанию curl)
+wget -O - -q https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s vX.Y.Z
+```
+
+Если вы хотите собрать утилиту из исходников (и имеете установленный Go в системе), вы можете установить ``yapusher`` так:
 
 ```sh
 go get -u github.com/fat0troll/yapusher
