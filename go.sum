@@ -14,6 +14,8 @@ github.com/schollz/progressbar v1.0.0 h1:gbyFReLHDkZo8mxy/dLWMr+Mpb1MokGJ1FqCiqa
 github.com/schollz/progressbar v1.0.0/go.mod h1:/l9I7PC3L3erOuz54ghIRKUEFcosiWfLvJv+Eq26UMs=
 github.com/schollz/progressbar/v2 v2.10.0 h1:AxYYUjr5fOPlA0Pcqc3R3kDBrqyLFWk2P7LRLdXb3yE=
 github.com/schollz/progressbar/v2 v2.10.0/go.mod h1:l6tn6yU6ZdQoF8lwX/VoAUQ3FjhCbrcZDnl9xeWZzYw=
+github.com/schollz/progressbar/v2 v2.11.0 h1:lQZYMKqH/kSSOc9rjL+9sa4bZavGS6EkBAZKKYdOjz4=
+github.com/schollz/progressbar/v2 v2.11.0/go.mod h1:fBI3onORwtNtwCWJHsrXtjE3QnJOtqIZrvr3rDaF7L0=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0Q=

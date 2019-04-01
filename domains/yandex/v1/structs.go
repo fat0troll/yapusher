@@ -4,7 +4,6 @@
 package yandexv1
 
 import (
-	"fmt"
 	"github.com/schollz/progressbar/v2"
 	"io"
 )
@@ -26,9 +25,6 @@ func (pr *progressReader) Read(p []byte) (int, error) {
 
 func (pr *progressReader) report(n int64) {
 	_ = pr.progressbar.Add64(n)
-	if pr.atEOF {
-		fmt.Print("\n\n")
-	}
 }
 
 type TokenError struct {

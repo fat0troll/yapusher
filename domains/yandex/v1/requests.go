@@ -124,6 +124,7 @@ func uploadFile(uploadPath string, filePath string, overwriteFile bool) {
 		int(fileInfo.Size()),
 		progressbar.OptionSetBytes(int(fileInfo.Size())),
 		progressbar.OptionSetRenderBlankState(true),
+		progressbar.OptionClearOnFinish(),
 	)
 
 	progressReader := &progressReader{
