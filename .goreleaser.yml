@@ -7,13 +7,32 @@ before:
 builds:
 - env:
   - CGO_ENABLED=0
+  goos:
+    - darwin
+    - windows
+    - linux
+    - freebsd
+  goarch:
+    - 386
+    - amd64
+    - arm
+    - arm64
+  goarm:
+    - 6
+    - 7
 archive:
   replacements:
     darwin: Darwin
     linux: Linux
     windows: Windows
+    freebsd: FreeBSD
     386: i386
     amd64: x86_64
+  format_overrides:
+    - goos: windows
+      format: zip
+    - goos: darwin
+      format: zip
 checksum:
   name_template: 'checksums.txt'
 snapshot:
