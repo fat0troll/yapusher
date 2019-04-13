@@ -9,7 +9,7 @@ This small CLI utility is useful when you want to upload single file to Yandex.D
 The recommended install way is via Releases by invoking single command
 
 ```sh
-# binary will be $(go env GOPATH)/bin/golangci-lint
+# binary will be $(go env GOPATH)/bin/yapusher
 curl -sfL https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | sh -s -- -b $(go env GOPATH)/bin vX.Y.Z
 
 # or install it into ./bin/
