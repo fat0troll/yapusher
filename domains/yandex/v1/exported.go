@@ -12,7 +12,7 @@ import (
 const YandexAppID = "7d8a0561fdc44c05bb6695b464403f9c"
 const YandexAppPw = "56e12e4ed0d64738bf441a47f68c7146"
 const DefaultDeviceName = "yapusher-cli"
-const MaxUploadSize = 10 * 1024 * 1024 * 1024 // 10 gigabytes
+const MaxUploadSize = 50 * 1024 * 1024 * 1024 // 50 gigabytes
 
 var (
 	c    *context.Context
