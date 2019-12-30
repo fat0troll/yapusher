@@ -60,6 +60,8 @@ There is no support for uploading entire directories (yet).
 
 This utility is in early stages of development. Things may change or break. However, this utility is used by author for making ``vzdump`` backups uploads to Yandex.Disk in semi-production environment.
 
+The repository in Github is just a mirror. I can accept pull requests here, but only manually and with some delay. You can use [original](https://source.hodakov.me/fat0troll/yapusher) repository for pull requests and issues.
+
 There are some things to do:
 
 * Test coverage
@@ -128,6 +130,9 @@ yapusher -file /путь/к/файлу -uploadPath "путь/на/яндекс/�
 ### Разработка и TODO
 
 Эта утилита находится в самом начале разработки. Что-то может измениться или сломаться. Однако, автор этой программы уже использует её на пре-продакшен окружении для бекапа дампов ``vzdump``.
+
+
+Репозиторий в Github — зеркало. Я принимаю пулл-реквесты и в нём, но с задержкой и вручную. Основная разработка ведётся [здесь](https://source.hodakov.me/fat0troll/yapusher).
 
 План разработки:
 
