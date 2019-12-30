@@ -22,7 +22,7 @@ wget -O - -q https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | s
 If you're brave enough, or have Go installed, you can invoke
 
 ```sh
-go get -u github.com/fat0troll/yapusher
+go get -u source.hodakov.me/fat0troll/yapusher
 ```
 
 The stability of master branch is questionable. Please consider using pre-built binaries except you facing some bugs that aren't fixed in newest release.
@@ -69,7 +69,7 @@ There are some things to do:
 
 ### License
 
-See [LICENSE](https://github.com/fat0troll/yapusher/blob/master/LICENSE).
+See [LICENSE](https://source.hodakov.me/fat0troll/yapusher/src/branch/master/LICENSE).
 
 ## Russian
 
@@ -93,7 +93,7 @@ wget -O - -q https://install.goreleaser.com/github.com/fat0troll/yapusher.sh | s
 Если вы хотите собрать утилиту из исходников (и имеете установленный Go в системе), вы можете установить ``yapusher`` так:
 
 ```sh
-go get -u github.com/fat0troll/yapusher
+go get -u source.hodakov.me/fat0troll/yapusher
 ```
 
 Стабильность ветки ``master`` находится под вопросом. Рекомендуется использовать собранную автоматически версию утилиты из релиза, если вы не являетесь разработчиком на Go или же не испытываете затруднений в работе с утилитой, исправления которых ещё не вошло в очередной релиз.
@@ -138,4 +138,4 @@ yapusher -file /путь/к/файлу -uploadPath "путь/на/яндекс/�
 
 ### Лицензия
 
-См. [LICENSE](https://github.com/fat0troll/yapusher/blob/master/LICENSE).
+См. [LICENSE](https://source.hodakov.me/fat0troll/yapusher/src/branch/master/LICENSE).

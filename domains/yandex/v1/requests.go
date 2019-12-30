@@ -133,7 +133,7 @@ func uploadFile(uploadPath string, filePath string, overwriteFile bool) {
 	}
 
 	if uploadInfo.URL == "" {
-		dlog.Fatal().Msg("Got empty upload URL. Report a bug at https://github.com/fat0troll/yapusher/issues because this situation is impossible.")
+		dlog.Fatal().Msg("Got empty upload URL. Report a bug at https://source.hodakov.me/fat0troll/yapusher/issues because this situation is impossible.")
 	}
 
 	uploadReq, _ := http.NewRequest("PUT", uploadInfo.URL, progressReader)
@@ -150,7 +150,7 @@ func uploadFile(uploadPath string, filePath string, overwriteFile bool) {
 	case http.StatusAccepted:
 		dlog.Info().Msg("File uploaded successfully, but it will take time for Yandex.Disk to handle it internally. Be patient and don't try to upload single file many times")
 	case http.StatusRequestEntityTooLarge:
-		dlog.Fatal().Msg("File upload is too large. Report a bug at https://github.com/fat0troll/yapusher/issues because this situation should be handled before upload attempt.")
+		dlog.Fatal().Msg("File upload is too large. Report a bug at https://source.hodakov.me/fat0troll/yapusher/issues because this situation should be handled before upload attempt.")
 	case http.StatusInsufficientStorage:
 		dlog.Fatal().Msg("There is no space left on your Yandex.Disk.")
 	default:

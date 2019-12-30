@@ -1,4 +1,4 @@
-module github.com/fat0troll/yapusher
+module source.hodakov.me/fat0troll/yapusher
 
 go 1.12
 

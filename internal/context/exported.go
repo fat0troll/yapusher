@@ -4,7 +4,7 @@
 package context
 
 import (
-	"github.com/fat0troll/yapusher/internal/config"
+	"source.hodakov.me/fat0troll/yapusher/internal/config"
 	"github.com/rs/zerolog"
 	"gitlab.com/pztrn/flagger"
 )

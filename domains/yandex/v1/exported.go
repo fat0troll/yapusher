@@ -4,7 +4,7 @@
 package yandexv1
 
 import (
-	"github.com/fat0troll/yapusher/internal/context"
+	"source.hodakov.me/fat0troll/yapusher/internal/context"
 	"github.com/rs/zerolog"
 	"gitlab.com/pztrn/flagger"
 )

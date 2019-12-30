@@ -5,8 +5,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/fat0troll/yapusher/domains/yandex/v1"
-	"github.com/fat0troll/yapusher/internal/context"
+	"source.hodakov.me/fat0troll/yapusher/domains/yandex/v1"
+	"source.hodakov.me/fat0troll/yapusher/internal/context"
 	"runtime/debug"
 )
 
